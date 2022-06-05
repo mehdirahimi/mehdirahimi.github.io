@@ -9,26 +9,11 @@ tag:
   - java
 image: /cara-memperbarui-fork-repository/repo.png
 ---
-
-First step is creating a new Maven project. Every Maven project has this structure at minimal:
-
-────maven-project  
-&emsp;&emsp;&emsp;├───pom.xml  
-&emsp;&emsp;&emsp;└───src  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───main  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;├───java  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;├───resources  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───webapp
-
-
-        
-
-
 # File Storage
 
 - [Introduction](#introduction)
 - [Configuration](#configuration)
-    - [The Local Driver](#the-local-driver)
+    - [POM File](#pom-file)
     - [The Public Disk](#the-public-disk)
     - [Driver Prerequisites](#driver-prerequisites)
     - [Amazon S3 Compatible Filesystems](#amazon-s3-compatible-filesystems)
@@ -51,25 +36,57 @@ First step is creating a new Maven project. Every Maven project has this structu
 <a name="introduction"></a>
 ## Introduction
 
-In this tutorial I'm creating a new Jakarta EE project from scratch step by step. I try to do it with latest Jakarta EE ecosystem. Currently available version of [Jakarta EE Platform API](https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api) is 9.1.0. Consider that Jakarta EE 10 is not released yet. After realizing, I'll updated it imediately.
+In this tutorial I'm creating a new Jakarta EE project from scratch step by step. I try to do it with latest Jakarta EE ecosystem. Currently available version of [Jakarta EE Platform API](https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api) is **9.1.0**. Consider that Jakarta EE 10 is not released yet. After realizing, I'll updated it imediately.
 
 <a name="configuration"></a>
 ## Configuration
 
-Laravel's filesystem configuration file is located at `config/filesystems.php`. Within this file, you may configure all of your filesystem "disks". Each disk represents a particular storage driver and storage location. Example configurations for each supported driver are included in the configuration file so you can modify the configuration to reflect your storage preferences and credentials.
+First step is creating a new Maven project. Every Maven project has this structure at minimal:
 
-The `local` driver interacts with files stored locally on the server running the Laravel application while the `s3` driver is used to write to Amazon's S3 cloud storage service.
-
-> {tip} You may configure as many disks as you like and may even have multiple disks that use the same driver.
+────maven-project  
+&emsp;&emsp;&emsp;├───pom.xml  
+&emsp;&emsp;&emsp;└───src  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───main  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;├───java  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;├───resources  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───webapp
 
 <a name="the-local-driver"></a>
-### The Local Driver
+### POM File
 
-When using the `local` driver, all file operations are relative to the `root` directory defined in your `filesystems` configuration file. By default, this value is set to the `storage/app` directory. Therefore, the following method would write to `storage/app/example.txt`:
+Minimal _pom.xml_ file structure is as follows:
 
-    use Illuminate\Support\Facades\Storage;
-
-    Storage::disk('local')->put('example.txt', 'Contents');
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>org.example</groupId>
+        <artifactId>jakarta-ee-from-scratch</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <packaging>war</packaging>
+        <properties>
+            <maven.compiler.source>17</maven.compiler.source>
+            <maven.compiler.target>17</maven.compiler.target>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-api</artifactId>
+                <version>9.1.0</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.3.2</version>
+                </plugin>
+            </plugins>
+        </build>
+    </project>
 
 <a name="the-public-disk"></a>
 ### The Public Disk
