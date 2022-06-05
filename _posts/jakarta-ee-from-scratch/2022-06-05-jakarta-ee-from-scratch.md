@@ -13,13 +13,12 @@ image: /cara-memperbarui-fork-repository/repo.png
 First step is creating a new Maven project. Every Maven project has this structure at minimal:
 
 ────maven-project  
-    ├───pom.xml  
-    └───src  
-        └───main  
-            ├───java  
-            ├───resources  
-            ├───filters  
-            └───webapp
+&emsp;&emsp;&emsp;├───pom.xml  
+&emsp;&emsp;&emsp;└───src  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───main  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;├───java  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;├───resources  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───webapp
 
 
         
@@ -52,7 +51,7 @@ First step is creating a new Maven project. Every Maven project has this structu
 <a name="introduction"></a>
 ## Introduction
 
-Laravel provides a powerful filesystem abstraction thanks to the wonderful [Flysystem](https://github.com/thephpleague/flysystem) PHP package by Frank de Jonge. The Laravel Flysystem integration provides simple drivers for working with local filesystems, SFTP, and Amazon S3. Even better, it's amazingly simple to switch between these storage options between your local development machine and production server as the API remains the same for each system.
+In this tutorial I'm creating a new Jakarta EE project from scratch step by step. I try to do it with latest Jakarta EE ecosystem. Currently available version of [Jakarta EE Platform API](https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api) is 9.1.0. Consider that Jakarta EE 10 is not released yet. After realizing, I'll updated it imediately.
 
 <a name="configuration"></a>
 ## Configuration
