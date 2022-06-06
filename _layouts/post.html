@@ -48,13 +48,13 @@ layout: compress
           <h1 class="header-title" itemprop="headline">{{ page.title | escape }}</h1>
           {% if page.date %}
           <div class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" class="post-updated-at">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" class="post-updated-at" style="margin-right: 0">
               {{ page.date | date: "%b %d, %Y" }}
             </time>
             <span itemprop="author" itemscope itemtype="https://schema.org/Person">
               <span itemprop="name" style="display: none">{{ site.author.name }}</span>
               {% if page.modified %}
-              <span class="post-updated-at" style="color: #ffd700">(Updated at: {{page.modified | date: "%b %d, %Y"}})</small>
+              <span class="post-updated-at" style="color: #767f87">(Updated at: {{page.modified | date: "%b %d, %Y"}})</small>
               {% endif %}
             </span>
             <time hidden datetime="{{ page.modified | date_to_xmlschema }}" itemprop="dateModified">
