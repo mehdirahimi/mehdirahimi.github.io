@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Jakarta EE From Scratch
-date: 2022-06-05 21:11 +0700
-modified: 2020-03-07 16:49:47 +07:00
+date: 2022-06-05 21:11
+modified: 2020-03-07 16:49:47
 description: Latest Jakarta EE (9.1) Step by Step.
 tag:
   - jakarta-ee
