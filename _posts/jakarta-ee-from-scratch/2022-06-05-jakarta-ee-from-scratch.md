@@ -70,6 +70,7 @@ Minimal _pom.xml_ file structure is as follows:
         <properties>
             <maven.compiler.source>17</maven.compiler.source>
             <maven.compiler.target>17</maven.compiler.target>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
         </properties>
         <dependencies>
             <dependency>
