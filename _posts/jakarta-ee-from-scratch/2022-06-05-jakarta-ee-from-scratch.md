@@ -51,6 +51,8 @@ First step is creating a new Maven project. Every Maven project has this structu
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;├───resources  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└───webapp
 
+First we start with pom.xml file and describe it's different section.
+
 <a name="the-local-driver"></a>
 ### POM File
 
