@@ -36,6 +36,10 @@ tag:
 
 
  - Add Configutaion...
+ - ![alt text](https://github.com/mehdirahimi/mehdirahimi.github.io/blob/master/1-configuration.jpg?raw=true)
+ - Add Configutaionnnnnnn...
+ - [alt text](https://github.com/mehdirahimi/mehdirahimi.github.io/blob/master/_posts/integrating-glassfish-with-intellij-idea/1-configuration.jpg?raw=true)
+
 
 
 <a name="introduction"></a>
